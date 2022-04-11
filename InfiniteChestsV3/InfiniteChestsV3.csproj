@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InfiniteChestsV3</RootNamespace>
-    <AssemblyName>InfiniteChestsV3</AssemblyName>
+    <AssemblyName>InfiniteChestsV3_1.6.0-mpql</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
