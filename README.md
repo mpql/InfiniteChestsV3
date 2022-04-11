@@ -16,7 +16,7 @@ Note: I'm changing the versioning scheme with 1.6.0-mpql to be more in line with
 - Chest naming is still broken
 
 ### 1.3.0.0-mpql.2
-- Updated for TShock 
+- Updated for  TShock 4.5.4 / Terraria 1.4.2.3
 
 ### 1.3.0.0-mpql.1
 - Fixes [#6 Corrupted Chest Bug After Spawning Mimic](https://github.com/Zaicon/InfiniteChestsV3/issues/6)
