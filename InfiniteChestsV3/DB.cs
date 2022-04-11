@@ -67,7 +67,7 @@ namespace InfiniteChestsV3
 					InfChest chest = new InfChest(reader.Get<int>("UserID"), x, y, Main.worldID)
 					{
 						id = reader.Get<int>("ID"),
-						isPublic = reader.Get<int>("Public") == 1 ? true : false,
+						isPublic = reader.Get<int>("Public") == 1,
 						refill = reader.Get<int>("Refill")
 					};
 					chest.StringToGroups(reader.Get<string>("Groups"));
@@ -90,7 +90,7 @@ namespace InfiniteChestsV3
 					InfChest chest = new InfChest(reader.Get<int>("UserID"), reader.Get<int>("X"), reader.Get<int>("Y"), Main.worldID)
 					{
 						id = id,
-						isPublic = reader.Get<int>("Public") == 1 ? true : false,
+						isPublic = reader.Get<int>("Public") == 1,
 						refill = reader.Get<int>("Refill")
 					};
 					chest.StringToGroups(reader.Get<string>("Groups"));
@@ -196,7 +196,7 @@ namespace InfiniteChestsV3
 
 			List<Point> points = new List<Point>();
 
-			string query = $"SELECT * FROM InfChests3 WHERE Items = '{sb.ToString()}' AND WorldID = {Main.worldID} AND Refill = -1;";
+			string query = $"SELECT * FROM InfChests3 WHERE Items = '{sb}' AND WorldID = {Main.worldID} AND Refill = -1;";
 			using (var reader = db.QueryReader(query))
 			{
 				while (reader.Read())
@@ -206,7 +206,7 @@ namespace InfiniteChestsV3
 				}
 			}
 
-			query = $"DELETE FROM InfChests3 WHERE Items = '{sb.ToString()}' AND WorldID = {Main.worldID} AND Refill = -1;";
+			query = $"DELETE FROM InfChests3 WHERE Items = '{sb}' AND WorldID = {Main.worldID} AND Refill = -1;";
 			db.Query(query);
 			return points;
 		}
@@ -336,7 +336,7 @@ namespace InfiniteChestsV3
 								int userid = reader.Get<int>("UserID");
 								int x = reader.Get<int>("X");
 								int y = reader.Get<int>("Y");
-								bool ispublic = reader.Get<int>("Public") == 1 ? true : false;
+								bool ispublic = reader.Get<int>("Public") == 1;
 								List<int> users = string.IsNullOrEmpty(reader.Get<string>("Users")) ? new List<int>() : reader.Get<string>("Users").Split(',').ToList().ConvertAll(p => int.Parse(p));
 								List<string> groups = string.IsNullOrEmpty(reader.Get<string>("Groups")) ? new List<string>() : reader.Get<string>("Groups").Split(',').ToList();
 								int refill = reader.Get<int>("Refill");
@@ -393,7 +393,7 @@ namespace InfiniteChestsV3
 						int userid = reader.Get<int>("UserID");
 						int x = reader.Get<int>("X");
 						int y = reader.Get<int>("Y");
-						bool ispublic = reader.Get<int>("Public") == 1 ? true : false;
+						bool ispublic = reader.Get<int>("Public") == 1;
 						List<int> users = string.IsNullOrEmpty(reader.Get<string>("Users")) ? new List<int>() : reader.Get<string>("Users").Split(',').ToList().ConvertAll(p => int.Parse(p));
 						List<string> groups = string.IsNullOrEmpty(reader.Get<string>("Groups")) ? new List<string>() : reader.Get<string>("Groups").Split(',').ToList();
 						int refill = reader.Get<int>("Refill");

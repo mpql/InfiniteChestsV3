@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Localization;
 using TerrariaApi.Server;
 using TShockAPI;
@@ -17,7 +18,7 @@ namespace InfiniteChestsV3
 	public class InfMain : TerrariaPlugin
 	{
 		#region Plugin Information
-		public override string Author => "Zaicon";
+		public override string Author => "Zaicon +mpql";
 		public override string Description => "The third version of InfiniteChests!";
 		public override string Name => "InfiniteChestsV3";
 		public override Version Version => Assembly.GetExecutingAssembly().GetName().Version;
@@ -289,9 +290,9 @@ namespace InfiniteChestsV3
 										RefillChestInfo rcinfo = GetRCInfo(!gplayer.IsLoggedIn ? -1 : gplayer.Account.ID, gchest.id);
 
 										//use refill items if exists, or create new refill entry, or use items directly
-										if (gchest.isRefill && rcinfo != null && (DateTime.Now - rcinfo.TimeOpened).TotalSeconds < gchest.refill)
+										if (gchest.IsRefill && rcinfo != null && (DateTime.Now - rcinfo.TimeOpened).TotalSeconds < gchest.refill)
 											items = rcinfo.CurrentItems;
-										else if (gchest.isRefill)
+										else if (gchest.IsRefill)
 										{
 											if (rcinfo != null)
 												DeleteOldRCInfo(!gplayer.IsLoggedIn ? -1 : gplayer.Account.ID, gchest.id);
@@ -407,7 +408,7 @@ namespace InfiniteChestsV3
 								}
 							}
 
-							if (cichest.isRefill)
+							if (cichest.IsRefill)
 								circinfo.CurrentItems[itemslot] = item;
 							else
 							{
@@ -489,7 +490,7 @@ namespace InfiniteChestsV3
 									if (success == -1)
 									{
 										NetMessage.TrySendData((int)PacketTypes.PlaceChest, index, -1, null, action, tilex, tiley, style);
-										Item.NewItem(tilex * 16, tiley * 16, 32, 32, Chest.chestItemSpawn[style], 1, noBroadcast: true);
+										Item.NewItem(new EntitySource_DebugCommand(), tilex * 16, tiley * 16, 32, 32, Chest.chestItemSpawn[style], 1, noBroadcast: true);
 									}
 									else
 									{
@@ -527,12 +528,12 @@ namespace InfiniteChestsV3
 										else if (chest.userid != player.Account.ID && chest.userid != -1 && !player.HasPermission("ic.edit"))
 										{
 											player.SendErrorMessage("This chest is protected.");
-											player.SendTileSquare(tilex, tiley, 3);
+											player.SendTileSquareCentered(tilex, tiley, 3);
 										}
 										//check for empty chest
-										else if (!chest.isEmpty)
+										else if (!chest.IsEmpty)
 										{
-											player.SendTileSquare(tilex, tiley, 3);
+											player.SendTileSquareCentered(tilex, tiley, 3);
 										}
 										else
 										{

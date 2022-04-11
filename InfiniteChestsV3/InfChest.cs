@@ -20,8 +20,8 @@ namespace InfiniteChestsV3
 		public List<int> users;
 		public int refill;
 		public int worldid;
-		public bool isRefill { get { return refill > -1; } }
-		public bool isEmpty
+		public bool IsRefill { get { return refill > -1; } }
+		public bool IsEmpty
 		{
 			get
 			{

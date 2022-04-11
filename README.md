@@ -1,8 +1,35 @@
-This is updated for TShock 4.5.4 / Terraria 1.4.2.3, with my fixes for [Zaicon/InfiniteChestsV3](https://github.com/Zaicon/InfiniteChestsV3) [#6](https://github.com/Zaicon/InfiniteChestsV3/issues/6), [#10]((https://github.com/Zaicon/InfiniteChestsV3/issues/11)), and [#11](https://github.com/Zaicon/InfiniteChestsV3/issues/11) from back in 2020. If anyone wants to tackle any other issues, please feel free to send PRs. - Mopquill
+# InfiniteChestsV3-mpql
 
-# InfiniteChestsV3
+This is the collection of ongoing compatibility and bug fixes I've written for [Zaicon/InfiniteChestsV3](https://github.com/Zaicon/InfiniteChestsV3) from 2020-2022, as that seems to be abandoned.
 
-This is a completely rewritten version of MarioE's original InfiniteChests plugin. Most of this plugin was copied or modified from that one.
+If anyone wants to tackle any issues, please feel free to send PRs. I am not a C#-, or even a software programmer, so I cannot guarantee I'll make any updates / bugfixes myself unless I'm actively playing and happen to have the motivation to hunt something down.
+
+You can find the latest release available for download at [mpql/InfiniteChestsV3/releases](https://github.com/mpql/InfiniteChestsV3/releases).
+
+
+## Changelog
+
+Note: I'm changing the versioning scheme with 1.6.0-mpql to be more in line with [semver](https://github.com/semver/semver).
+
+### 1.6.0-mpql
+- Updated for TShock 4.5.17 / Terraria 1.4.3.6
+- Chest naming is still broken
+
+### 1.3.0.0-mpql.2
+- Updated for TShock 
+
+### 1.3.0.0-mpql.1
+- Fixes [#6 Corrupted Chest Bug After Spawning Mimic](https://github.com/Zaicon/InfiniteChestsV3/issues/6)
+- Fixes [#10 Key of Light / Dark - Multiple Issues](https://github.com/Zaicon/InfiniteChestsV3/issues/10)
+	- Mimics spawned outside of Corruption or Crimson will randomly spawn as either Corrupted or Crimson, so you can access mimics from outside your world's evil without having to build a corresponding section of the world.
+- Fixes [#11 Raise chest limit to 8000](https://github.com/Zaicon/InfiniteChestsV3/issues/11)
+
+---
+
+
+# Original Readme
+
+## InfiniteChestsV3
 
 ### Plugin Features:
 - Saves chests to database, allowing more than 8,000 chests per map.
